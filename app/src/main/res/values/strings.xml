@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">BookStore</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Store</string>
+    <string name="menu_add">Add Book</string>
+    <string name="menu_gallery">Cart</string>
+    <string name="menu_slideshow">Delivery</string>
+    <string name="menu_tools">Profile</string>
+    <string name="menu_share">Find Us</string>
+    <string name="menu_send">Logout</string>
+    <string name="test">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</string>
+</resources>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/aux1"
+    android:animateLayoutChanges="true">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/back"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Book"
+            android:textSize="17sp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:textColor="@color/aux1"/>
+    </androidx.appcompat.widget.Toolbar>
+<androidx.core.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="55dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:layout_marginTop="30dp"
+        >
+
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@mipmap/book1"/>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/title_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/next_layout"
+            android:layout_marginTop="10dp"
+            app:hintTextAppearance="@style/HintText">
+
+            <EditText
+                android:id="@+id/btitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Book Title"
+                android:padding="11dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/author_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email_layout"
+            android:layout_marginTop="15dp"
+            app:hintTextAppearance="@style/HintText">
+
+            <EditText
+                android:id="@+id/bauthor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Book Author(s)"
+                android:inputType="textPersonName"
+                android:padding="11dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/price_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_layout"
+            android:layout_marginTop="15dp"
+            app:hintTextAppearance="@style/HintText">
+
+            <EditText
+                android:id="@+id/bprice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Book Price (₦)"
+                android:inputType="number"
+                android:padding="11dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/desc_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/num_layout"
+            android:layout_marginTop="15dp"
+            app:hintTextAppearance="@style/HintText">
+
+            <EditText
+                android:id="@+id/bdesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:hint="Brief Description"
+                android:padding="11dp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/pass_layout"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bgshape"
+            android:backgroundTint="@color/aux5">
+
+            <TextView
+                android:id="@+id/val_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="UPLOAD BOOK"
+                android:textColor="@color/aux2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/lgif"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ld7"
+                android:visibility="invisible"
+                android:tint="@color/aux1"/>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

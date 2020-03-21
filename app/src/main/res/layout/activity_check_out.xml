@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/root"
+    android:background="@color/aux1"
+    tools:context=".CheckOut">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/tb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:navigationIcon="@drawable/back"
+        android:background="@color/colorPrimary">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Confirm Order"
+            android:textSize="17sp"
+            android:fontFamily="@font/poppins"
+            android:textStyle="bold"
+            android:textColor="@color/aux1"/>
+    </androidx.appcompat.widget.Toolbar>
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="55dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/aux1"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/shadow2"
+                android:layout_marginTop="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BOOK ITEMS"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="@color/aux7"
+                android:drawableStart="@drawable/items"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/aux7"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/aux6"
+                android:layout_marginTop="4dp"/>
+            <TextView
+                android:id="@+id/items"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/aux7"
+                android:layout_marginTop="6dp"
+
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"/>
+            </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/shadow2"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CONTACT DETAILS"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="@color/aux7"
+                android:drawableStart="@drawable/contact"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/aux7"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/aux6"
+                android:layout_marginTop="4dp"/>
+
+            <EditText
+                android:id="@+id/cdetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:background="@color/aux1"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:focusedByDefault="false"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/shadow2"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="15dp"
+            android:layout_marginEnd="15dp"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DELIVERY LOCATION"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="@color/aux7"
+                android:drawableStart="@drawable/location"
+                android:drawablePadding="10dp"
+                android:drawableTint="@color/aux7"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/aux6"
+                android:layout_marginTop="4dp"/>
+            <EditText
+                android:id="@+id/delloc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins"
+                android:textColor="@color/colorAccent"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:background="@color/aux1"
+                android:padding="10dp"
+                android:scrollbars="vertical"
+                android:focusedByDefault="false"/>
+        </LinearLayout>
+
+            <Button
+                android:id="@+id/action_checkout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Checkout"
+                android:textSize="15sp"
+                android:fontFamily="@font/poppins"
+                android:textStyle="bold"
+                android:textColor="@color/aux1"
+                android:backgroundTint="@color/aux5"
+                android:background="@drawable/bgshape"
+                android:layout_margin="15dp"
+                android:drawableStart="@drawable/cart"
+                android:paddingStart="10dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/bg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/mytransparent"
+        android:visibility="gone"/>
+    <include layout="@layout/popup_dialog_checkout" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bgshape4"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="65dp"
+    app:behavior_skipCollapsed="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:id="@+id/b1layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:visibility="gone">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bgshape"
+            android:backgroundTint="@color/aux6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Book Details"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/aux6" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+
+                <TextView
+                    android:id="@+id/btitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="Alloys of Generation"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="21sp" />
+                <TextView
+                    android:id="@+id/bauthor"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="By Prakesh"
+                    android:textColor="@color/aux7"
+                    android:textSize="15sp"
+                    android:textStyle="italic"/>
+                <TextView
+                    android:id="@+id/bdesc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginTop="6dp"
+                    android:fontFamily="@font/source_sans_pro"
+                    android:text="@string/test"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="16sp"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+                    <Button
+                        android:id="@+id/cart"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bgshape2"
+                        android:backgroundTint="@color/aux5"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="Add to Cart"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                        android:textColor="@color/aux1"
+                        android:textSize="13dp"
+                        android:textAlignment="gravity"/>
+                    <Button
+                        android:id="@+id/buy"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bgshape2"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="Buy Now ₦5,000"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:textStyle="bold"
+                        android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                        android:textColor="@color/aux1"
+                        android:textSize="13dp"
+                        android:textAlignment="gravity"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/confirm_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:visibility="visible">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bgshape"
+            android:backgroundTint="@color/aux6" />
+
+        <TextView
+            android:id="@+id/heading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Confirm Delete"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/aux6" />
+
+
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="Do you want to delete this book?"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp" />
+
+
+        <LinearLayout
+            android:id="@+id/buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux1"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="cancel"
+                android:textStyle="bold"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textColor="@color/aux4"
+                android:textSize="13dp"
+                android:textAlignment="gravity"
+                android:layout_margin="10dp"/>
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="confirm"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:textStyle="bold"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textColor="@color/aux1"
+                android:textSize="13dp"
+                android:textAlignment="gravity"/>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

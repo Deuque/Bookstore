@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+     android:layout_width="150dp"
+    android:layout_height="wrap_content"
+    android:background="@drawable/shadow1"
+    android:layout_margin="6dp">
+    <LinearLayout
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="7dp"
+       >
+
+    <ImageView
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/book1"/>
+
+    <TextView
+        android:id="@+id/booktitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="Relativity Theory"
+        android:textColor="@color/colorAccent"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:gravity="center"
+        />
+    <TextView
+        android:id="@+id/bookauthor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/source_sans_pro"
+        android:text="By Prakesh Singh"
+        android:textSize="16sp"
+        android:textColor="@color/aux7"
+        android:maxLines="2"
+        android:ellipsize="end"
+        android:gravity="center"/>
+    <TextView
+        android:id="@+id/bookprice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/roboto"
+        android:text="₦5000"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:maxLines="1"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:layout_marginTop="5dp"/>
+        <Button
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:text="Delete"
+            android:textAppearance="@style/Widget.AppCompat.Button.Small"
+            android:textStyle="bold"
+            android:textColor="@color/aux4"
+            android:background="@drawable/bgshape"
+            android:backgroundTint="@color/aux1"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:textSize="13sp"
+            android:fontFamily="@font/poppins"
+            android:drawableStart="@drawable/delete"
+            android:drawableTint="@color/aux4"
+            android:drawablePadding="5dp"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+</LinearLayout>

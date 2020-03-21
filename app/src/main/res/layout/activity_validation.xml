@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    tools:context=".Validation">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/val2" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:animateLayoutChanges="true"
+        android:background="@drawable/bgshape"
+        android:backgroundTint="@color/mytransparent"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/val_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="Hello, \n Welcome Back."
+            android:textColor="@color/aux1"
+            android:textSize="21sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="4dp"
+            android:layout_toStartOf="@id/next_layout"
+            android:background="@color/aux2" />
+
+        <LinearLayout
+            android:id="@+id/next_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginStart="4dp"
+            android:layout_marginTop="3dp"
+            android:layout_marginEnd="5dp"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/next1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="New User?"
+                android:textColor="@color/aux2"
+
+                />
+
+            <TextView
+                android:id="@+id/next2"
+                android:layout_width="wrap_content"
+                android:layout_height="20dp"
+                android:layout_below="@id/next1"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/source_sans_pro"
+                android:gravity="center"
+                android:text="Sign Up"
+                android:textAlignment="center"
+                android:textColor="@color/colorPrimary"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/email_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/next_layout"
+            android:layout_marginTop="30dp"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/email"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux7"
+                android:hint="Email Address"
+                android:inputType="textEmailAddress"
+                android:padding="11dp"
+                android:textColor="@color/aux2"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/name_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/email_layout"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux7"
+                android:hint="Full Name"
+                android:inputType="textPersonName"
+                android:padding="11dp"
+                android:textColor="@color/aux2"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/num_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/name_layout"
+            android:layout_marginTop="15dp"
+            android:visibility="gone"
+            app:hintEnabled="false">
+
+            <EditText
+                android:id="@+id/number"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux7"
+                android:hint="Phone number"
+                android:inputType="number"
+                android:padding="11dp"
+                android:textColor="@color/aux2"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/pass_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/num_layout"
+            android:layout_marginTop="15dp"
+            app:hintEnabled="false"
+            app:passwordToggleEnabled="true">
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/email"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux7"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:padding="11dp"
+                android:textColor="@color/aux2"
+                android:textColorHint="@color/colorAccent"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@id/pass_layout"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/bgshape">
+
+            <TextView
+                android:id="@+id/val_action"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/source_sans_pro"
+                android:text="Sign In"
+                android:textColor="@color/aux2"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/lgif"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerInParent="true"
+                android:layout_marginEnd="15dp"
+                android:src="@drawable/ld7"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+
+    </RelativeLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

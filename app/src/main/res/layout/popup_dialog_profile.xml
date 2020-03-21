@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/bottomSheet"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bgshape4"
+    android:orientation="vertical"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="65dp"
+    app:behavior_skipCollapsed="true"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="7dp">
+
+        <View
+            android:layout_width="50dp"
+            android:layout_height="5dp"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/bgshape"
+            android:backgroundTint="@color/aux6" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Edit Profile"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@color/aux6" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <EditText
+                    android:id="@+id/updatename"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/bgshape"
+                    android:backgroundTint="@color/aux6"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Full Name"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/contact"
+                    android:drawablePadding="6dp"/>
+
+                <EditText
+                    android:id="@+id/updatenumber"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/bgshape"
+                    android:backgroundTint="@color/aux6"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Mobile Number"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/call"
+                    android:drawablePadding="6dp"/>
+
+                <EditText
+                    android:id="@+id/updateloc"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:background="@drawable/bgshape"
+                    android:backgroundTint="@color/aux6"
+                    android:fontFamily="@font/poppins"
+                    android:hint="Delivery Address"
+                    android:padding="10dp"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="14sp"
+                    android:drawableEnd="@drawable/location"
+                    android:drawablePadding="6dp"/>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="10dp"
+                    android:gravity="end"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/submit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/bgshape"
+                        android:backgroundTint="@color/colorPrimary"
+                        android:fontFamily="@font/poppins"
+                        android:gravity="center"
+                        android:text="Submit"
+                        android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                        android:textColor="@color/aux1"
+                        android:textSize="13dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+</LinearLayout>

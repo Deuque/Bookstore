@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical" android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shadow2"
+        android:layout_margin="9dp"
+        >
+
+        <LinearLayout
+            android:id="@+id/bookdetails"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="4dp"
+            android:layout_above="@id/div">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/qty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:fontFamily="@font/roboto"
+                    android:text="2 Books"
+                    android:paddingStart="9dp"
+                    android:paddingEnd="9dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/aux1"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:background="@drawable/bgshape3"
+                    android:backgroundTint="@color/colorPrimaryDark"
+                    android:layout_marginEnd="10dp"/>
+
+                <TextView
+                    android:id="@+id/status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:text="Pending"
+                    android:textStyle="bold"
+                    android:textColor="@color/aux8"
+                    android:textSize="13sp"
+                    android:gravity="center_vertical"
+                    android:textAlignment="gravity"
+                    android:drawableStart="@drawable/status"
+                    android:drawablePadding="7dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/booktitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:fontFamily="@font/roboto"
+                android:maxLines="4"
+                android:layout_marginTop="3dp"
+                android:text="Relativity Theory"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/deldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto"
+                android:text="By Prakesh Singh"
+                android:textSize="14sp"
+                android:textColor="@color/aux7"
+                android:maxLines="4"
+                android:ellipsize="end"
+                android:layout_marginTop="7dp"/>
+
+
+
+        </LinearLayout>
+        <View
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/aux6"
+            android:layout_above="@id/enditems"
+            android:layout_marginTop="10dp"/>
+
+        <RelativeLayout
+            android:id="@+id/enditems"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingStart="10dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:id="@+id/t1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppins"
+                android:text="TOTAL: "
+                android:textSize="13sp"
+                android:textColor="@color/colorAccent"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:layout_centerVertical="true"/>
+            <TextView
+                android:id="@+id/bookprice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₦11000"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@color/aux5"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:gravity="center"
+                android:layout_marginTop="3dp"
+                android:layout_marginStart="7dp"
+                android:layout_toEndOf="@id/t1"
+                android:layout_centerVertical="true"/>
+
+            <ImageButton
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Remove"
+                android:tint="@color/aux5"
+                android:src="@drawable/delete"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textStyle="bold"
+                android:textColor="@color/aux4"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux1"
+                android:layout_alignParentEnd="true"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="16dp"
+                android:layout_centerVertical="true"/>
+
+            <Button
+                android:id="@+id/deliver"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Delivered"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textStyle="bold"
+                android:textColor="@color/aux9"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux1"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:textSize="13sp"
+                android:fontFamily="@font/poppins"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginEnd="16dp"
+                android:visibility="gone"
+                android:drawableEnd="@drawable/check"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:textAlignment="gravity"/>
+        </RelativeLayout>
+
+    </LinearLayout>

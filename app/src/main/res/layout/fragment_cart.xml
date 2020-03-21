@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/aux1"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+   <androidx.appcompat.widget.Toolbar
+       android:id="@+id/tb"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       app:navigationIcon="@drawable/back"
+       android:background="@color/colorPrimary">
+       <TextView
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:text="Book Cart"
+           android:textSize="17sp"
+           android:fontFamily="@font/poppins"
+           android:textStyle="bold"
+           android:textColor="@color/aux1"/>
+   </androidx.appcompat.widget.Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:scrollbars="vertical"
+        android:layout_below="@id/tb"
+        android:layout_above="@id/total"/>
+
+    <RelativeLayout
+        android:id="@+id/total"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/checkout"
+        android:background="@color/aux1">
+        <View
+            android:id="@+id/div"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/aux6"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Total :"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_marginStart="13dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@id/div"/>
+        <TextView
+            android:id="@+id/totamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₦0"
+            android:textColor="@color/aux5"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="13dp"
+            android:layout_below="@id/div"/>
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/checkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bgshape"
+        android:backgroundTint="@color/aux5"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:text="COMPLETE ORDER "
+        android:fontFamily="@font/poppins"
+        android:textAppearance="@style/Widget.AppCompat.Button.Small"
+        android:textSize="16sp"
+        android:textColor="@color/aux1"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"/>
+    <LinearLayout
+        android:id="@+id/load"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="20dp"
+        android:gravity="center"
+        android:layout_centerInParent="true"
+        android:visibility="visible">
+        <pl.droidsonroids.gif.GifImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ld7"/>
+        <TextView
+            android:id="@+id/empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poppins"
+            android:text="Loading Cart"
+            android:textColor="@color/aux7"
+            android:textSize="14sp"/>
+    </LinearLayout>
+</RelativeLayout>
