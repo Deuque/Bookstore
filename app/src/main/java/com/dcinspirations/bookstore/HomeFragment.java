@@ -140,7 +140,7 @@ public class HomeFragment extends Fragment {
                 view.setAlpha(slideOffset);
             }
         });
-        cancelSearch = root.findViewById(R.id.cancel);
+        cancelSearch = root.findViewById(R.id.cancel_search);
         cancelSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

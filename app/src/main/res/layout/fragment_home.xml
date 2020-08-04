@@ -63,7 +63,7 @@
                 android:layout_toStartOf="@id/cancel"
                 />
             <ImageView
-                android:id="@+id/cancel"
+                android:id="@+id/cancel_search"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/cancel"
