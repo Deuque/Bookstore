@@ -2,7 +2,6 @@ package com.dcinspirations.bookstore.adapters;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.dcinspirations.bookstore.R;
-import com.dcinspirations.bookstore.models.BookModel;
 import com.dcinspirations.bookstore.models.SliderModel;
-import com.dcinspirations.bookstore.ui.home.HomeFragment;
 import com.smarteist.autoimageslider.SliderViewAdapter;
 
 import java.util.List;

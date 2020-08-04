@@ -7,37 +7,37 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.dcinspirations.bookstore.ui.home.HomeFragment"
+        android:name="com.dcinspirations.bookstore.HomeFragment"
         android:label="@string/menu_home"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_cart"
-        android:name="com.dcinspirations.bookstore.ui.gallery.CartFragment"
+        android:name="com.dcinspirations.bookstore.CartFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/nav_delivery"
-        android:name="com.dcinspirations.bookstore.ui.slideshow.DeliveryFragment"
+        android:name="com.dcinspirations.bookstore.DeliveryFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_delivery" />
 
     <fragment
         android:id="@+id/nav_profile"
-        android:name="com.dcinspirations.bookstore.ui.tools.ProfileFragment"
+        android:name="com.dcinspirations.bookstore.ProfileFragment"
         android:label="@string/menu_tools"
         tools:layout="@layout/fragment_profile" />
 
     <fragment
         android:id="@+id/nav_Add"
-        android:name="com.dcinspirations.bookstore.ui.send.AddBook"
+        android:name="com.dcinspirations.bookstore.AddBook"
         android:label="@string/menu_add"
         tools:layout="@layout/fragment_addbook" />
 
     <fragment
         android:id="@+id/quickcartlayout"
-        android:name="com.dcinspirations.bookstore.ui.gallery.CartFragment"
+        android:name="com.dcinspirations.bookstore.CartFragment"
         android:label="@string/menu_gallery"
         tools:layout="@layout/fragment_cart"  />
 

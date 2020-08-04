@@ -10,14 +10,12 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.dcinspirations.bookstore.R;
 import com.dcinspirations.bookstore.Sp;
 import com.dcinspirations.bookstore.models.BookModel;
-import com.dcinspirations.bookstore.ui.home.HomeFragment;
-import com.google.firebase.database.FirebaseDatabase;
+import com.dcinspirations.bookstore.HomeFragment;
 
 import java.util.List;
 

@@ -73,7 +73,7 @@ public class CheckOut extends AppCompatActivity {
         delloc = findViewById(R.id.delloc);
 
         checkout = findViewById(R.id.action_checkout);
-        checkout.setText("CHECKOUT ( " + "₦" + resolveMoney(Integer.toString(getAmount())) + " )");
+        checkout.setText("CHECKOUT - " + "₦" + resolveMoney(Integer.toString(getAmount())));
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             checkout.setFocusedByDefault(false);
         }

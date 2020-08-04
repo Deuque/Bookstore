@@ -35,25 +35,44 @@
             android:layout_margin="8dp"
             />
 
-        <AutoCompleteTextView
-            android:id="@+id/search"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/open_drawer"
+            android:layout_toStartOf="@id/quickcartlayout"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/bgshape"
             android:backgroundTint="@color/aux3"
-            android:layout_toEndOf="@id/open_drawer"
-            android:layout_marginEnd="10dp"
-            android:layout_marginTop="10dp"
-            android:padding="6dp"
-            android:hint="Search Books and Documents"
-            android:textSize="16sp"
-            android:textColor="@color/colorAccent"
-            android:drawableStart="@drawable/search"
-            android:drawablePadding="9dp"
-            android:layout_toStartOf="@id/quickcartlayout"
-            android:focusedByDefault="false"
-            android:inputType="text"
-            android:imeOptions="actionSearch"/>
+            android:gravity="center_vertical">
+            <AutoCompleteTextView
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux3"
+                android:padding="6dp"
+                android:hint="Search Books and Documents"
+                android:textSize="16sp"
+                android:textColor="@color/colorAccent"
+                android:drawableStart="@drawable/search"
+                android:drawablePadding="9dp"
+                android:focusedByDefault="false"
+                android:inputType="text"
+                android:imeOptions="actionSearch"
+                android:layout_toStartOf="@id/cancel"
+                />
+            <ImageView
+                android:id="@+id/cancel"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/cancel"
+                android:layout_alignParentEnd="true"
+                android:padding="5dp"
+                android:visibility="gone"
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:id="@+id/quickcartlayout"

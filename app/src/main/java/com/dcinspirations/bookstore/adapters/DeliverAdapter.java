@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.dcinspirations.bookstore.R;
 import com.dcinspirations.bookstore.Sp;
 import com.dcinspirations.bookstore.models.DeliveryModel;
-import com.dcinspirations.bookstore.ui.slideshow.DeliveryFragment;
+import com.dcinspirations.bookstore.DeliveryFragment;
 
 import java.util.List;
 

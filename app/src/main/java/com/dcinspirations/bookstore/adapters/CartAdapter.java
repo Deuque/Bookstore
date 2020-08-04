@@ -20,10 +20,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.dcinspirations.bookstore.BaseApp;
 import com.dcinspirations.bookstore.R;
-import com.dcinspirations.bookstore.Sp;
 import com.dcinspirations.bookstore.models.BookModel;
 import com.dcinspirations.bookstore.models.CheckoutModel;
-import com.dcinspirations.bookstore.ui.gallery.CartFragment;
+import com.dcinspirations.bookstore.CartFragment;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
