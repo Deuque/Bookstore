@@ -16,11 +16,16 @@
     <string name="menu_send">Logout</string>
     <string name="test">"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s"</string>
 
-    <string name="test_card_1">408 408 408 408 408 1</string>
+    <string name="test_card_1">*** *** *** *** 408 1</string>
     <string name="test_card_1_number">4084084084084081</string>
     <string name="test_card_1_cvv">408</string>
 
-    <string name="test_card_2">5060 6666 6666 6666 666</string>
+    <string name="test_card_2">**** **** **** ***6 666</string>
     <string name="test_card_2_number">5060666666666666666</string>
     <string name="test_card_2_cvv">123</string>
+    <string name="test_card_2_pin">1234</string>
+    <string name="test_card_2_otp">123456</string>
+
+    <string name="test_public_key">pk_test_a380bd98ca75a5d1d4c5f3b21721d693bc658a26</string>
+    <string name="test_secret_key">sk_test_0c8d717701d606dbad5a3b9387a85d4c7aabfe06</string>
 </resources>

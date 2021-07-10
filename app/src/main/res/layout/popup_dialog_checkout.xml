@@ -110,13 +110,13 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/select_card"
+        android:id="@+id/select_card_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
         android:orientation="vertical"
         android:padding="7dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <TextView
             android:layout_width="wrap_content"
@@ -130,12 +130,15 @@
             android:textStyle="bold" />
 
         <LinearLayout
+            android:id="@+id/first_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bgshape5"
             android:backgroundTint="@android:color/holo_orange_dark"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
             android:paddingVertical="6dp">
@@ -146,36 +149,25 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Card Name"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/test_card_1"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:gravity="center_vertical"
+                    android:text="@string/test_card_1"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:src="@drawable/circle"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle" />
+
                 <ImageView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/circle"
-                    android:layout_height="wrap_content"/>
+                    android:tint="@android:color/darker_gray" />
 
             </LinearLayout>
 
@@ -194,10 +186,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="Expiry"
                         android:textColor="@android:color/white" />
 
                     <TextView
+                        android:id="@+id/first_card_expiry_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Card Name"
@@ -214,13 +207,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="Cvv"
                         android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="***"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
@@ -229,12 +222,15 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/second_card"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
             android:layout_marginTop="10dp"
             android:background="@drawable/bgshape5"
             android:backgroundTint="@android:color/holo_green_dark"
+            android:clickable="true"
+            android:foreground="?android:selectableItemBackground"
             android:orientation="vertical"
             android:paddingHorizontal="16dp"
             android:paddingVertical="6dp">
@@ -245,36 +241,25 @@
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <LinearLayout
+                <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
                     android:layout_weight="1"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Card Name"
-                        android:textColor="@android:color/white" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:text="@string/test_card_2"
-                        android:textColor="@android:color/white"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
+                    android:text="@string/test_card_2"
+                    android:textColor="@android:color/white"
+                    android:textStyle="bold" />
 
                 <ImageView
                     android:layout_width="wrap_content"
-                    android:src="@drawable/circle"
-                    android:layout_height="wrap_content"/>
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/circle" />
+
                 <ImageView
                     android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:src="@drawable/circle"
-                    android:layout_height="wrap_content"/>
+                    android:tint="@android:color/darker_gray" />
 
             </LinearLayout>
 
@@ -293,10 +278,11 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="Expiry"
                         android:textColor="@android:color/white" />
 
                     <TextView
+                        android:id="@+id/second_card_expiry_date"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Card Name"
@@ -313,13 +299,13 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="Cvv"
                         android:textColor="@android:color/white" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Card Name"
+                        android:text="***"
                         android:textColor="@android:color/white" />
 
                 </LinearLayout>
@@ -355,7 +341,7 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="7dp"
-        android:visibility="visible">
+        android:visibility="gone">
 
         <View
             android:layout_width="50dp"

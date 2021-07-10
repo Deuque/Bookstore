@@ -8,6 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -35,20 +36,27 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
+import co.paystack.android.Paystack;
+import co.paystack.android.PaystackSdk;
+import co.paystack.android.Transaction;
+import co.paystack.android.model.Card;
+import co.paystack.android.model.Charge;
 import pl.droidsonroids.gif.GifImageView;
 
 public class CheckOut extends AppCompatActivity {
 
-    LinearLayout bottomSheet, conlayout, load;
+    LinearLayout bottomSheet, conlayout, load, selectCardLayout, firstCard, secondCard;
     View view;
     BottomSheetBehavior bottomSheetBehavior;
-    TextView items;
+    TextView items, firstCardExpiryDate, secondCardExpiryDate;
     EditText cdetails, delloc;
     Button checkout, cancel, confirm;
     ArrayList<CheckoutModel> checkoutlist;
     boolean hasSent = false;
     CoordinatorLayout root;
     Toolbar tb;
+
+    final String tag = "Check out";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +86,11 @@ public class CheckOut extends AppCompatActivity {
             checkout.setFocusedByDefault(false);
         }
         conlayout = findViewById(R.id.confirm_layout);
+        selectCardLayout = findViewById(R.id.select_card_layout);
+        firstCard = findViewById(R.id.first_card);
+        firstCardExpiryDate = findViewById(R.id.first_card_expiry_date);
+        secondCard = findViewById(R.id.second_card);
+        secondCardExpiryDate = findViewById(R.id.second_card_expiry_date);
         load = findViewById(R.id.load);
         setData();
 
@@ -141,6 +154,20 @@ public class CheckOut extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectCard();
+            }
+        });
+
+        firstCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                uploadOrder();
+            }
+        });
+
+        secondCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 uploadOrder();
             }
         });
@@ -199,13 +226,18 @@ public class CheckOut extends AppCompatActivity {
         }
     }
 
+    private void selectCard() {
+        conlayout.setVisibility(View.GONE);
+        selectCardLayout.setVisibility(View.VISIBLE);
+    }
+
     private void uploadOrder() {
-        //.
+        selectCardLayout.setVisibility(View.GONE);
+        load.setVisibility(View.VISIBLE);
+
         final String itemtext = items.getText().toString().trim();
         final String cdetailstext = cdetails.getText().toString().trim();
         final String loc = delloc.getText().toString().trim();
-        conlayout.setVisibility(View.GONE);
-        load.setVisibility(View.VISIBLE);
 
         final DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Delivery");
         dbref.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -214,11 +246,11 @@ public class CheckOut extends AppCompatActivity {
                 int count = 0;
                 for (DataSnapshot snaps : dataSnapshot.getChildren()) {
                     int last = Integer.parseInt(snaps.getKey().split("")[snaps.getKey().length()]);
-                    if(last>count){
+                    if (last > count) {
                         count = last;
                     }
                 }
-                DatabaseReference dbref2 = dbref.child("del" + (count+1));
+                DatabaseReference dbref2 = dbref.child("del" + (count + 1));
                 dbref2.child("Items").setValue(itemtext);
                 dbref2.child("CDetails").setValue(cdetailstext);
                 dbref2.child("Publisher").setValue(FirebaseAuth.getInstance().getUid());
@@ -263,8 +295,35 @@ public class CheckOut extends AppCompatActivity {
                 Toast.makeText(CheckOut.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
             }
         });
+    }
 
+    private void chargeCard(String userEmail, String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
+        PaystackSdk.initialize(getApplicationContext());
+        PaystackSdk.setPublicKey(getString(R.string.test_public_key));
 
+        Card card = new Card(cardNumber, cardExpiryMonth, cardExpiryYear, cardCvv);
+
+        Charge charge = new Charge();
+        charge.setAmount(amount);
+        charge.setEmail(userEmail);
+        charge.setCard(card);
+
+        PaystackSdk.chargeCard(this, charge, new Paystack.TransactionCallback() {
+            @Override
+            public void onSuccess(Transaction transaction) {
+                Log.wtf(tag, transaction.getReference());
+            }
+
+            @Override
+            public void beforeValidate(Transaction transaction) {
+                Log.wtf(tag, transaction.getReference());
+            }
+
+            @Override
+            public void onError(Throwable error, Transaction transaction) {
+                Log.wtf(tag, "Error: " + error.getMessage() + ", transaction: " + transaction.getReference());
+            }
+        });
     }
 
     private void clearCart() {
@@ -298,7 +357,7 @@ public class CheckOut extends AppCompatActivity {
     private int getAmount() {
         int amount = 0;
         for (CheckoutModel cm : checkoutlist) {
-            int tam = Integer.parseInt(cm.getBookModel().getPrice().replaceAll(",", ""))*Integer.parseInt(cm.getQuantity());
+            int tam = Integer.parseInt(cm.getBookModel().getPrice().replaceAll(",", "")) * Integer.parseInt(cm.getQuantity());
             amount = amount + tam;
         }
 
@@ -313,7 +372,7 @@ public class CheckOut extends AppCompatActivity {
         for (int i = bram.length - 1; i >= 1; i--) {
             newamount = bram[i] + newamount;
             count++;
-            if (count % 3==0) {
+            if (count % 3 == 0) {
                 newamount = "," + newamount;
 
             }
