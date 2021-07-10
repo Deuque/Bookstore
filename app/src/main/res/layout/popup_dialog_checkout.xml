@@ -46,95 +46,338 @@
             android:background="@color/aux6" />
 
 
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/source_sans_pro"
+            android:text="Are you sure Book Details and Delivery details are correct?"
+            android:textColor="@color/colorAccent"
+            android:textSize="15sp" />
 
-                <TextView
-                    android:id="@+id/title"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="20dp"
-                    android:fontFamily="@font/source_sans_pro"
-                    android:text="Are you sure Book Details and Delivery details are correct?"
-                    android:textColor="@color/colorAccent"
-                    android:textSize="15sp" />
 
+        <LinearLayout
+            android:id="@+id/buttons_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cancel"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_margin="10dp"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/aux1"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:text="cancel"
+                android:textAlignment="gravity"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textColor="@color/aux4"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/confirm"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/bgshape"
+                android:backgroundTint="@color/colorPrimary"
+                android:fontFamily="@font/poppins"
+                android:gravity="center"
+                android:paddingStart="6dp"
+                android:paddingEnd="6dp"
+                android:text="confirm"
+                android:textAlignment="gravity"
+                android:textAppearance="@style/Widget.AppCompat.Button.Small"
+                android:textColor="@color/aux1"
+                android:textSize="13dp"
+                android:textStyle="bold" />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/select_card"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        android:padding="7dp"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/poppins"
+            android:text="Select Card"
+            android:textColor="@color/colorAccent"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bgshape5"
+            android:backgroundTint="@android:color/holo_orange_dark"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/buttons_layout"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginBottom="10dp"
-                    android:gravity="end|center_vertical"
-                    android:orientation="horizontal">
-                    <Button
-                        android:id="@+id/cancel"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:background="@drawable/bgshape"
-                        android:backgroundTint="@color/aux1"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:text="cancel"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/Widget.AppCompat.Button.Small"
-                        android:textColor="@color/aux4"
-                        android:textSize="13dp"
-                        android:textAlignment="gravity"
-                        android:layout_margin="10dp"/>
-                    <Button
-                        android:id="@+id/confirm"
-                        android:layout_width="wrap_content"
-                        android:layout_height="30dp"
-                        android:layout_marginStart="10dp"
-                        android:background="@drawable/bgshape"
-                        android:backgroundTint="@color/colorPrimary"
-                        android:fontFamily="@font/poppins"
-                        android:gravity="center"
-                        android:text="confirm"
-                        android:paddingStart="6dp"
-                        android:paddingEnd="6dp"
-                        android:textStyle="bold"
-                        android:textAppearance="@style/Widget.AppCompat.Button.Small"
-                        android:textColor="@color/aux1"
-                        android:textSize="13dp"
-                        android:textAlignment="gravity"/>
+                    android:layout_weight="1"
+                    android:orientation="vertical">
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/test_card_1"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
 
                 </LinearLayout>
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/circle"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/circle"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bgshape5"
+            android:backgroundTint="@android:color/holo_green_dark"
+            android:orientation="vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="6dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="@string/test_card_2"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/circle"
+                    android:layout_height="wrap_content"/>
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:src="@drawable/circle"
+                    android:layout_height="wrap_content"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Card Name"
+                        android:textColor="@android:color/white" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/add_new_card"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_gravity="end"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bgshape"
+            android:fontFamily="@font/poppins"
+            android:gravity="center"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp"
+            android:text="Add new card"
+            android:textAppearance="@style/Widget.AppCompat.Button.Small"
+            android:textColor="@color/aux1"
+            android:textSize="13dp"
+            android:textStyle="bold" />
+
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/load"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:visibility="gone"
+        android:orientation="vertical"
         android:padding="7dp"
-        android:layout_marginBottom="20dp">
+        android:visibility="visible">
+
         <View
             android:layout_width="50dp"
             android:layout_height="5dp"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/bgshape"
             android:backgroundTint="@color/aux6" />
+
         <pl.droidsonroids.gif.GifImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/ld7"
             android:layout_marginTop="20dp"
             android:maxWidth="120dp"
-            android:maxHeight="120dp"/>
+            android:maxHeight="120dp"
+            android:src="@drawable/ld7" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/poppins"
             android:text="Uploading order"
             android:textColor="@color/aux7"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
     </LinearLayout>
 </LinearLayout>

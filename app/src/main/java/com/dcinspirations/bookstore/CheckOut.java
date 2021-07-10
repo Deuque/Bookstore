@@ -200,6 +200,7 @@ public class CheckOut extends AppCompatActivity {
     }
 
     private void uploadOrder() {
+        //.
         final String itemtext = items.getText().toString().trim();
         final String cdetailstext = cdetails.getText().toString().trim();
         final String loc = delloc.getText().toString().trim();
