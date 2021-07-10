@@ -8,6 +8,7 @@ import androidx.coordinatorlayout.widget.CoordinatorLayout;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.ContactsContract;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
@@ -23,6 +24,7 @@ import com.dcinspirations.bookstore.models.UserModel;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomsheet.BottomSheetBehavior;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -34,7 +36,9 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import co.paystack.android.Paystack;
 import co.paystack.android.PaystackSdk;
@@ -50,7 +54,7 @@ public class CheckOut extends AppCompatActivity {
     BottomSheetBehavior bottomSheetBehavior;
     TextView items, firstCardExpiryDate, secondCardExpiryDate;
     EditText cdetails, delloc;
-    Button checkout, cancel, confirm;
+    Button checkout, cancel, confirm, addNewCard;
     ArrayList<CheckoutModel> checkoutlist;
     boolean hasSent = false;
     CoordinatorLayout root;
@@ -91,6 +95,7 @@ public class CheckOut extends AppCompatActivity {
         firstCardExpiryDate = findViewById(R.id.first_card_expiry_date);
         secondCard = findViewById(R.id.second_card);
         secondCardExpiryDate = findViewById(R.id.second_card_expiry_date);
+        addNewCard = findViewById(R.id.add_new_card);
         load = findViewById(R.id.load);
         setData();
 
@@ -161,14 +166,21 @@ public class CheckOut extends AppCompatActivity {
         firstCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadOrder();
+                uploadOrder(getString(R.string.test_card_1_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_1_cvv));
             }
         });
 
         secondCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadOrder();
+                uploadOrder(getString(R.string.test_card_2_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_2_cvv));
+            }
+        });
+
+        addNewCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getApplicationContext(), "You cannot add a card at this time. Please select one of the existing cards", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -231,7 +243,7 @@ public class CheckOut extends AppCompatActivity {
         selectCardLayout.setVisibility(View.VISIBLE);
     }
 
-    private void uploadOrder() {
+    private void uploadOrder(String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
         selectCardLayout.setVisibility(View.GONE);
         load.setVisibility(View.VISIBLE);
 
@@ -265,6 +277,8 @@ public class CheckOut extends AppCompatActivity {
                                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                             }
 
+                            chargeCard(cardNumber, cardExpiryMonth, cardExpiryYear, amount, cardCvv);
+
                             GifImageView giv = (GifImageView) load.getChildAt(1);
                             LinearLayout.LayoutParams lp1 = (LinearLayout.LayoutParams) giv.getLayoutParams();
                             lp1.width = 500;
@@ -297,7 +311,7 @@ public class CheckOut extends AppCompatActivity {
         });
     }
 
-    private void chargeCard(String userEmail, String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
+    private void chargeCard(String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
         PaystackSdk.initialize(getApplicationContext());
         PaystackSdk.setPublicKey(getString(R.string.test_public_key));
 
@@ -305,7 +319,7 @@ public class CheckOut extends AppCompatActivity {
 
         Charge charge = new Charge();
         charge.setAmount(amount);
-        charge.setEmail(userEmail);
+        charge.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
         charge.setCard(card);
 
         PaystackSdk.chargeCard(this, charge, new Paystack.TransactionCallback() {
@@ -380,6 +394,26 @@ public class CheckOut extends AppCompatActivity {
         }
 
         return newamount;
+    }
+
+    private FutureDate cardExpiry() {
+        int date = Integer.parseInt(DateFormat.format("dd", new Date()).toString());
+        int currentMonth = Integer.parseInt(DateFormat.format("MM", new Date()).toString());
+        int currentYear = Integer.parseInt(DateFormat.format("yyyy", new Date()).toString());
+
+        int futureMonth;
+        int futureYear;
+
+        if (currentMonth == 12) {
+            futureMonth = currentMonth - 11;
+            futureYear = currentYear + 1;
+        } else {
+            futureMonth = currentMonth + 1;
+            futureYear = currentYear;
+        }
+
+        return new FutureDate(date, futureMonth, futureYear);
+
     }
 
     @Override
