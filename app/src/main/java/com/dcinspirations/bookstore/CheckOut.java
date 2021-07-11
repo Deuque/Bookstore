@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -49,16 +50,20 @@ import pl.droidsonroids.gif.GifImageView;
 
 public class CheckOut extends AppCompatActivity {
 
-    LinearLayout bottomSheet, conlayout, load, selectCardLayout, firstCard, secondCard;
+    LinearLayout bottomSheet, conlayout, load, selectCardLayout, firstCard, secondCard, processingPayment;
     View view;
+    GifImageView processing;
+    ImageView cardErrorIllustration;
     BottomSheetBehavior bottomSheetBehavior;
-    TextView items, firstCardExpiryDate, secondCardExpiryDate;
+    TextView items, firstCardExpiryDate, secondCardExpiryDate, processingPaymentText;
     EditText cdetails, delloc;
-    Button checkout, cancel, confirm, addNewCard;
+    Button checkout, cancel, confirm, addNewCard, goBackToSelectCard;
     ArrayList<CheckoutModel> checkoutlist;
     boolean hasSent = false;
     CoordinatorLayout root;
     Toolbar tb;
+    final ShowNotification notification = new ShowNotification();
+    final NotificationDetails details = new NotificationDetails();
 
     final String tag = "Check out";
 
@@ -96,6 +101,11 @@ public class CheckOut extends AppCompatActivity {
         secondCard = findViewById(R.id.second_card);
         secondCardExpiryDate = findViewById(R.id.second_card_expiry_date);
         addNewCard = findViewById(R.id.add_new_card);
+        processingPayment = findViewById(R.id.processing_payment);
+        processing = findViewById(R.id.processing);
+        cardErrorIllustration = findViewById(R.id.card_error_illustration);
+        processingPaymentText = findViewById(R.id.processing_payment_text);
+        goBackToSelectCard = findViewById(R.id.go_back_to_select_card);
         load = findViewById(R.id.load);
         setData();
 
@@ -166,21 +176,38 @@ public class CheckOut extends AppCompatActivity {
         firstCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadOrder(getString(R.string.test_card_1_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_1_cvv));
+                chargeCard(getString(R.string.test_card_1_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_1_cvv));
             }
         });
 
         secondCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                uploadOrder(getString(R.string.test_card_2_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_2_cvv));
+                chargeCard(getString(R.string.test_card_2_number), cardExpiry().getFutureMonth(), cardExpiry().getFutureYear(), getAmount(), getString(R.string.test_card_2_cvv));
             }
         });
+
+        firstCardExpiryDate.setText(cardExpiry().getFutureMonth() + "/" + cardExpiry().getFutureYear());
+        secondCardExpiryDate.setText(cardExpiry().getFutureMonth() + "/" + cardExpiry().getFutureYear());
 
         addNewCard.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(getApplicationContext(), "You cannot add a card at this time. Please select one of the existing cards", Toast.LENGTH_LONG).show();
+            }
+        });
+
+        goBackToSelectCard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.wtf(tag, "goBackToSelectCard was clicked");
+                processingPayment.setVisibility(View.GONE);
+                selectCardLayout.setVisibility(View.VISIBLE);
+
+                processing.setVisibility(View.VISIBLE);
+                cardErrorIllustration.setVisibility(View.GONE);
+                goBackToSelectCard.setVisibility(View.GONE);
+                processingPaymentText.setText(getString(R.string.processing_payment_text));
             }
         });
     }
@@ -215,7 +242,6 @@ public class CheckOut extends AppCompatActivity {
     }
 
     private void openBottomSheet() {
-        final String itemtext = items.getText().toString().trim();
         final String cdetailstext = cdetails.getText().toString().trim();
         final String loc = delloc.getText().toString().trim();
         if (cdetailstext.isEmpty()) {
@@ -243,8 +269,52 @@ public class CheckOut extends AppCompatActivity {
         selectCardLayout.setVisibility(View.VISIBLE);
     }
 
-    private void uploadOrder(String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
+    private void chargeCard(String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
         selectCardLayout.setVisibility(View.GONE);
+        processingPayment.setVisibility(View.VISIBLE);
+
+        PaystackSdk.initialize(getApplicationContext());
+        PaystackSdk.setPublicKey(getString(R.string.test_public_key));
+
+        Card card = new Card(cardNumber, cardExpiryMonth, cardExpiryYear, cardCvv);
+
+        Charge charge = new Charge();
+        charge.setAmount(amount * 100);
+        charge.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
+        charge.setCard(card);
+
+        PaystackSdk.chargeCard(this, charge, new Paystack.TransactionCallback() {
+            @Override
+            public void onSuccess(Transaction transaction) {
+                notification.notifyUser(CheckOut.this,
+                        details.paymentSuccessfulNotificationId,
+                        details.paymentSuccessfulNotificationChannelId,
+                        details.paymentSuccessfulNotificationChannelName,
+                        details.paymentSuccessfulNotificationChannelDescription,
+                        details.paymentSuccessfulNotificationTitle,
+                        "You have successfully paid ₦" + resolveMoney(Integer.toString(getAmount())) + ". Your transaction reference is " + transaction.getReference() + ". Your payment receipt has also been sent to your email");
+                uploadOrder();
+            }
+
+            @Override
+            public void beforeValidate(Transaction transaction) {
+                Log.wtf(tag, transaction.getReference());
+            }
+
+            @Override
+            public void onError(Throwable error, Transaction transaction) {
+                Log.wtf(tag, "Error: " + error.getMessage() + ", transaction: " + transaction.getReference());
+
+                processing.setVisibility(View.GONE);
+                cardErrorIllustration.setVisibility(View.VISIBLE);
+                goBackToSelectCard.setVisibility(View.VISIBLE);
+                processingPaymentText.setText(error.getMessage());
+            }
+        });
+    }
+
+    private void uploadOrder() {
+        processingPayment.setVisibility(View.GONE);
         load.setVisibility(View.VISIBLE);
 
         final String itemtext = items.getText().toString().trim();
@@ -277,8 +347,6 @@ public class CheckOut extends AppCompatActivity {
                                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_EXPANDED);
                             }
 
-                            chargeCard(cardNumber, cardExpiryMonth, cardExpiryYear, amount, cardCvv);
-
                             GifImageView giv = (GifImageView) load.getChildAt(1);
                             LinearLayout.LayoutParams lp1 = (LinearLayout.LayoutParams) giv.getLayoutParams();
                             lp1.width = 500;
@@ -294,6 +362,14 @@ public class CheckOut extends AppCompatActivity {
 
                             hasSent = true;
 
+                            notification.notifyUser(CheckOut.this,
+                                    details.orderSuccessfulNotificationId,
+                                    details.orderSuccessfulNotificationChannelId,
+                                    details.orderSuccessfulNotificationChannelName,
+                                    details.orderSuccessfulNotificationChannelDescription,
+                                    details.orderSuccessfulNotificationTitle,
+                                    details.orderSuccessfulNotificationBody);
+
                         } else {
                             bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                             Toast.makeText(CheckOut.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
@@ -307,35 +383,6 @@ public class CheckOut extends AppCompatActivity {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 bottomSheetBehavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 Toast.makeText(CheckOut.this, databaseError.getMessage(), Toast.LENGTH_LONG).show();
-            }
-        });
-    }
-
-    private void chargeCard(String cardNumber, int cardExpiryMonth, int cardExpiryYear, int amount, String cardCvv) {
-        PaystackSdk.initialize(getApplicationContext());
-        PaystackSdk.setPublicKey(getString(R.string.test_public_key));
-
-        Card card = new Card(cardNumber, cardExpiryMonth, cardExpiryYear, cardCvv);
-
-        Charge charge = new Charge();
-        charge.setAmount(amount);
-        charge.setEmail(FirebaseAuth.getInstance().getCurrentUser().getEmail());
-        charge.setCard(card);
-
-        PaystackSdk.chargeCard(this, charge, new Paystack.TransactionCallback() {
-            @Override
-            public void onSuccess(Transaction transaction) {
-                Log.wtf(tag, transaction.getReference());
-            }
-
-            @Override
-            public void beforeValidate(Transaction transaction) {
-                Log.wtf(tag, transaction.getReference());
-            }
-
-            @Override
-            public void onError(Throwable error, Transaction transaction) {
-                Log.wtf(tag, "Error: " + error.getMessage() + ", transaction: " + transaction.getReference());
             }
         });
     }

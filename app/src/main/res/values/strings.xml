@@ -28,4 +28,5 @@
 
     <string name="test_public_key">pk_test_a380bd98ca75a5d1d4c5f3b21721d693bc658a26</string>
     <string name="test_secret_key">sk_test_0c8d717701d606dbad5a3b9387a85d4c7aabfe06</string>
+    <string name="processing_payment_text">Processing payment</string>
 </resources>
