@@ -160,7 +160,7 @@ public class DeliverAdapter extends RecyclerView.Adapter<DeliverAdapter.viewHold
                 }
 
             }
-
+            newamount = bram[0] + newamount;
             return newamount;
         }
 

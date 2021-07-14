@@ -182,6 +182,7 @@ public class CartFragment extends Fragment {
             }
         }
 
+        newamount = bram[0] + newamount;
         return newamount;
     }
 

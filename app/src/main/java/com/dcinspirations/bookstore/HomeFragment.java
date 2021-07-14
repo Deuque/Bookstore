@@ -281,7 +281,7 @@ public class HomeFragment extends Fragment {
                         int count = 0;
                         ArrayList<String> keys = new ArrayList<>();
                         for (DataSnapshot snaps : dataSnapshot.getChildren()) {
-                            int last = Integer.parseInt(snaps.getKey().split("")[snaps.getKey().length()]);
+                            int last = Integer.parseInt(snaps.getKey().split("")[snaps.getKey().length()-1]);
                             if(last>count){
                                 count = last;
                             }

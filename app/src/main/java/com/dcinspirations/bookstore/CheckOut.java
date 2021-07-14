@@ -439,7 +439,7 @@ public class CheckOut extends AppCompatActivity {
             }
 
         }
-
+        newamount = bram[0] + newamount;
         return newamount;
     }
 
