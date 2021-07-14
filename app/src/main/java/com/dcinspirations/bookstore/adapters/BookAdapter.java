@@ -125,20 +125,20 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.viewHolder> {
         }
 
         private String resolveMoney(String amount) {
-            String newamount = "";
-            String bram[] = amount.split("");
-            int count = 0;
-            for (int i = bram.length - 1; i >= 1; i--) {
-                newamount = bram[i] + newamount;
-                count++;
-                if (count % 3==0) {
-                    newamount = "," + newamount;
+//             String newamount = "";
+//             String bram[] = amount.split("");
+//             int count = 0;
+//             for (int i = bram.length - 1; i >= 1; i--) {
+//                 newamount = bram[i] + newamount;
+//                 count++;
+//                 if (count % 3==0) {
+//                     newamount = "," + newamount;
 
-                }
+//                 }
 
-            }
+//             }
 
-            return newamount;
+            return amount;
         }
 
 
